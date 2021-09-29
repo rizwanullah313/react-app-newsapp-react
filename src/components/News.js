@@ -272,6 +272,16 @@ export class News extends Component {
              loading: false
         }
     }
+    // ye life cycle method huy
+ async componentDidMount(){
+       
+       let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=4de5df67cfa64ae6a8b19f3816a7f873";
+       let data = await fetch(url);
+       let parseData = await data.json();
+       console.log(parseData);
+       this.setState({articles: parseData.articles})
+    }
+    // ye wait krega is romise k resolve honi ka
     render() {
         return (
                 <div className="container my-3">
